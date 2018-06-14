@@ -1,12 +1,15 @@
-class Task {
-
-  constructor(value, taskList){
-    this.value = value
+const Task = (function createTaskClass() {
+  let id = 0
+  return class Task {
+  constructor(description, taskList){
+    this.id = ++id
+    this.description = description
     this.taskList = taskList;
-    taskList.arr << this
+    this.taskList.tasks.push(this)
   }
 
-  deleteTask(){
-
+  htmlTemplate(){
+    return `<li>${this.description}<button data-id="${this.id}">X</button></li>`
   }
 }
+})()
