@@ -13,6 +13,7 @@ function createTask(e) {
   e.preventDefault();
   const task = new Task(box.value, taskList);
   renderTask(task)
+  form.reset()
 }
 
 function renderTask(task){
